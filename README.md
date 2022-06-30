@@ -14,11 +14,8 @@ Go back end project for an online shopping website
 ## :computer: Setup
 *... 🏗️ It's coming 🏗️ ...*
 
-##  :bomb: To Fix
-- `$item.Img` does not run: find the problem
-
-## :rocket: Features
-*... 🏗️ It's coming 🏗️ ...*
+## :ballot_box_with_check: To Do
+- Reorganize the project
 
 ## :key: License
 Written by [Loick Cherimont](https://github.com/loickcherimont "Go on Loick's Profile")
