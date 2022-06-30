@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS e_shop;
+CREATE DATABASE e_shop;
+USE e_shop;
+
 DROP TABLE IF EXISTS products;
 CREATE TABLE products (
     id INT AUTO_INCREMENT NOT NULL,
@@ -13,4 +17,4 @@ INSERT INTO products
 VALUES
     ("Laptop", "laptop.jpg", 500.99, 5),
     ("Smartphone", "smartphone.jpg", 300.50, 10),
-    ("Tablet", "tablet.jpg", 100.30, 3);
+    ("Tablet", "tablet.jpg", 100.50, 3);
