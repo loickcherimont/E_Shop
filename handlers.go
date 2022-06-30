@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-// database
+// *** FOR DATABASE ***
 func getAllProducts() ([]Product, error) {
 	// An products slice to hold data from returned rows.
 	var products []Product
@@ -29,7 +29,7 @@ func getAllProducts() ([]Product, error) {
 	return products, nil
 }
 
-// templates
+// *** FOR TEMPLATES ***
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	data, err := getAllProducts()
 	if err != nil {

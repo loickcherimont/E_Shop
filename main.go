@@ -25,12 +25,14 @@ func init() {
 }
 
 func main() {
-	// Setup database and use it
 	setupDatabase()
 	router := mux.NewRouter()
+	// Serve CSS, Javascript files and images
+	fs := http.FileServer(http.Dir("static"))
+	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
 	router.HandleFunc("/", indexHandler).Methods("GET")
-	log.Print("Server starting and running on 8080...")
-	if err := http.ListenAndServe(":8080", router); err != nil {
+	log.Print("Server starting and running on 3000...")
+	if err := http.ListenAndServe(":3000", router); err != nil {
 		log.Fatal(err)
 	}
 }
