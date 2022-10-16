@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"log"
-	"os"
+	// "os"
 
 	"github.com/go-sql-driver/mysql"
 )
@@ -11,16 +11,18 @@ import (
 var db *sql.DB
 
 func setupDatabase() {
-	cfg := mysql.Config{
-		User:   os.Getenv("DBUSER"),
-		Passwd: os.Getenv("DBPASS"),
-		Net:    "tcp",
-		Addr:   "127.0.0.1:3306",
-		DBName: "e_shop",
-	}
+	DBName := "e_shop"
 
-	var err error
-	db, err = sql.Open("mysql", cfg.FormatDSN())
+	// cfg := mysql.Config{
+	// 	User: os.Getenv("DBUSER"),
+	// 	Passwd: os.Getenv("DBPASS"),
+	// 	Net: "tcp",
+	// 	Addr: "127.0.0.1:3306",
+	// 	DBName: "e_shop",
+	// }
+	
+
+	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3306)/e_shop")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
@@ -28,6 +30,8 @@ func setupDatabase() {
 	if pingErr := db.Ping(); pingErr != nil {
 		log.Fatal(pingErr)
 	}
-	log.Printf("Connected to the database %v", cfg.DBName)
+	log.Printf("Connected to the database %v", DBName)
+
+	defer db.Close()
 
 }
